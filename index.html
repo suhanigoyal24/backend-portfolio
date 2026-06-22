@@ -1,0 +1,480 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suhani Goyal | Backend Engineer</title>
+
+<style>
+:root{
+    --bg:#FCFBFA;
+    --card:#FFFFFF;
+    --text:#1A1A1A;
+    --muted:#6B7280;
+    --border:#E5E7EB;
+
+    --orange:#FF7A00;
+    --yellow:#FFE600;
+    --mint:#00D68B;
+    --pink:#FCDDEC;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    line-height:1.6;
+}
+
+.wrapper{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.card{
+    background:var(--card);
+    border:1.5px solid var(--border);
+    border-radius:24px;
+    padding:24px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.04);
+    transition:all .2s ease;
+}
+
+.card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 24px rgba(0,0,0,.08);
+}
+
+.span-2{grid-column:span 2;}
+.span-3{grid-column:span 3;}
+.span-4{grid-column:span 4;}
+.row-2{grid-row:span 2;}
+
+.eyebrow{
+    font-size:.8rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--muted);
+    margin-bottom:12px;
+}
+
+.hero-name{
+    font-size:2.5rem;
+    font-weight:800;
+    line-height:1;
+    margin-bottom:18px;
+}
+
+.body{
+    color:var(--muted);
+    font-size:.95rem;
+}
+
+.badge{
+    display:inline-flex;
+    margin-top:20px;
+    padding:10px 16px;
+    border-radius:999px;
+    border:1.5px solid var(--border);
+    background:#FFF7D1;
+    font-size:.9rem;
+    font-weight:600;
+}
+
+.orange{
+    background:var(--orange);
+    border:none;
+    color:#fff;
+}
+
+.stack{
+    font-size:2rem;
+    font-weight:800;
+    line-height:1.2;
+}
+
+.metric-card{
+    border-top:6px solid var(--mint);
+}
+
+.metric-label{
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--muted);
+    font-size:.75rem;
+    font-weight:700;
+}
+
+.metric-number{
+    font-size:3.5rem;
+    font-weight:800;
+    color:var(--mint);
+    line-height:1;
+    margin:12px 0;
+}
+
+.section-title{
+    font-size:1.25rem;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+.tool-group{
+    margin-bottom:20px;
+}
+
+.tool-label{
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.chip{
+    padding:8px 12px;
+    border-radius:999px;
+    border:1.5px solid var(--border);
+    background:#FAFAFA;
+    font-size:.85rem;
+    font-weight:500;
+}
+
+.tag{
+    font-size:.75rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin-bottom:10px;
+}
+
+.green-tag{
+    color:var(--mint);
+}
+
+.purple-tag{
+    color:#7C3AED;
+}
+
+.project-title{
+    font-size:1.4rem;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.stat-box{
+    margin-top:18px;
+    padding:16px;
+    border-radius:18px;
+    font-size:.92rem;
+}
+
+.pink-box{
+    background:var(--pink);
+}
+
+.grey-box{
+    border:1.5px solid var(--border);
+    background:#FAFAFA;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.btn{
+    text-decoration:none;
+    color:var(--text);
+    border:1.5px solid var(--border);
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:.9rem;
+    font-weight:600;
+    transition:.2s ease;
+}
+
+.btn:hover{
+    transform:translateY(-1px);
+}
+
+.mint-panel{
+    background:var(--mint);
+    color:#fff;
+    border:none;
+}
+
+.mint-panel .big{
+    font-size:4rem;
+    font-weight:800;
+    line-height:1;
+}
+
+.mint-panel .label{
+    font-size:.85rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin:10px 0;
+}
+
+.footer-panel{
+    background:var(--pink);
+}
+
+.footer-title{
+    font-size:1.25rem;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+@media(max-width:900px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .span-2,
+    .span-3,
+    .span-4,
+    .row-2{
+        grid-column:span 1;
+        grid-row:span 1;
+    }
+
+    .hero-name{
+        font-size:2rem;
+    }
+
+    .stack{
+        font-size:1.5rem;
+    }
+
+    .metric-number{
+        font-size:2.8rem;
+    }
+
+    .mint-panel .big{
+        font-size:3rem;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="grid">
+
+<!-- CELL 1 -->
+<section class="card span-2">
+    <div class="eyebrow">BACKEND ENGINEER</div>
+
+    <h1 class="hero-name">SUHANI GOYAL</h1>
+
+    <p class="body">
+        BCA Graduate (2026 Batch) building Python backend systems,
+        NLP-powered applications, and scalable data-processing
+        pipelines. Focused on reliable APIs, clean data architecture,
+        and production-ready software that transforms complex workflows
+        into efficient, automated systems.
+    </p>
+
+    <div class="badge">
+        📦 Gurugram • Available for immediate in-person technical and HR interview rounds
+    </div>
+</section>
+
+<!-- CELL 2 -->
+<section class="card span-2 orange">
+    <div class="stack">
+        CORE STACK:<br>
+        PYTHON • DJANGO •<br>
+        POSTGRESQL • REST APIs
+    </div>
+</section>
+
+<!-- CELL 3 -->
+<section class="card metric-card">
+    <div class="metric-label">
+        AUTOMATED TEST COVERAGE
+    </div>
+
+    <div class="metric-number">
+        96.3%
+    </div>
+
+    <p class="body">
+        Implemented comprehensive Pytest coverage across backend
+        services, API workflows, and document-processing pipelines
+        to ensure stable deployments, minimize regression risk,
+        and maintain application reliability.
+    </p>
+</section>
+
+<!-- CELL 4 -->
+<aside class="card row-2">
+    <h2 class="section-title">ENGINEERING TOOLKIT</h2>
+
+    <div class="tool-group">
+        <div class="tool-label">BACKEND CORE</div>
+        <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">Django</span>
+            <span class="chip">REST APIs</span>
+        </div>
+    </div>
+
+    <div class="tool-group">
+        <div class="tool-label">DATA & INFRASTRUCTURE</div>
+        <div class="chips">
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Git Version Control</span>
+            <span class="chip">AWS Basics</span>
+        </div>
+    </div>
+
+    <div class="tool-group">
+        <div class="tool-label">QUALITY ENGINEERING</div>
+        <div class="chips">
+            <span class="chip">Pytest</span>
+            <span class="chip">API Testing</span>
+            <span class="chip">Automation Testing</span>
+            <span class="chip">Manual Testing</span>
+        </div>
+    </div>
+</aside>
+
+<!-- CELL 5 -->
+<section class="card span-2">
+    <div class="tag green-tag">
+        NATURAL LANGUAGE PROCESSING & AUTOMATION
+    </div>
+
+    <h2 class="project-title">
+        ATS RESUME QUALITY CHECKER
+    </h2>
+
+    <p class="body">
+        Engineered a Python-based document analysis platform utilizing
+        the spaCy NLP framework to parse, normalize, and evaluate
+        resume content against predefined job qualification criteria.
+        Designed modular processing layers for document ingestion,
+        keyword extraction, similarity scoring, and structured
+        evaluation reporting.
+    </p>
+
+    <div class="stat-box pink-box">
+        ⚡ <strong>70% EFFICIENCY GAIN</strong> — Reduced manual review effort
+        by automating resume extraction and qualification analysis
+        workflows, significantly decreasing human screening overhead.
+    </div>
+
+    <div class="buttons">
+        <a href="#" class="btn">Source Code [GitHub]</a>
+        <a href="#" class="btn">Production Branch [Vercel]</a>
+    </div>
+</section>
+
+<!-- CELL 6 -->
+<section class="card span-3">
+    <div class="tag purple-tag">
+        INTELLIGENT WORKFLOW ARCHITECTURES
+    </div>
+
+    <h2 class="project-title">
+        AI QUESTIONNAIRE EVALUATION PIPELINE
+    </h2>
+
+    <p class="body">
+        Developed a backend document-processing platform integrating
+        LangChain orchestration engines and PostgreSQL vector storage
+        to retrieve, evaluate, and generate context-aware responses
+        from multi-document datasets. Built scalable processing
+        workflows for semantic search, document retrieval, and
+        AI-assisted evaluation.
+    </p>
+
+    <div class="stat-box grey-box">
+        ⚙️ <strong>ENGINEERING IMPACT</strong> — Designed Python-powered REST APIs
+        with structured validation, centralized error handling, and
+        JSON-based logging mechanisms to securely process complex
+        document streams.
+    </div>
+
+    <div class="buttons">
+        <a href="#" class="btn">Source Code [GitHub]</a>
+        <a href="#" class="btn">Live Engine [HuggingFace]</a>
+    </div>
+</section>
+
+<!-- CELL 7 -->
+<section class="card mint-panel">
+    <div class="big">70%</div>
+
+    <div class="label">
+        MANUAL REVIEW REDUCTION
+    </div>
+
+    <p>
+        Achieved through automated document extraction,
+        keyword classification, and structured evaluation pipelines.
+    </p>
+</section>
+
+<!-- CELL 8 -->
+<footer class="card span-4 footer-panel">
+    <h2 class="footer-title">
+        CURRENT FOCUS
+    </h2>
+
+    <p>
+        Building backend applications using Python, Django,
+        PostgreSQL, and modern AI tooling. Actively seeking
+        Backend Developer, Python Developer, and Software Engineer
+        opportunities involving APIs, automation, NLP systems,
+        and scalable backend architectures in the Gurugram region.
+    </p>
+</footer>
+
+</div>
+</div>
+
+</body>
+</html>
+```
