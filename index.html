@@ -41,25 +41,18 @@ a { text-decoration: none; color: inherit; }
   transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
   mix-blend-mode: multiply;
 }
-.cursor.hovering {
-  width: 36px; height: 36px;
-  background: var(--lime-dark);
-}
+.cursor.hovering { width: 36px; height: 36px; background: var(--lime-dark); }
 .cursor-dot {
   width: 5px; height: 5px;
-  background: #000;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate(-50%, -50%);
+  background: #000; border-radius: 50%;
+  position: fixed; pointer-events: none;
+  z-index: 10000; transform: translate(-50%, -50%);
 }
 
 /* ── NAVBAR ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: var(--white);
-  border-bottom: var(--border);
+  background: var(--white); border-bottom: var(--border);
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 40px; height: 56px;
 }
@@ -72,6 +65,7 @@ nav {
   border: var(--border); border-radius: 5px;
   display: flex; align-items: center; justify-content: center;
   font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700;
+  flex-shrink: 0;
 }
 .nav-links { display: flex; gap: 4px; }
 .nav-links a {
@@ -80,26 +74,28 @@ nav {
   transition: background 0.15s;
 }
 .nav-links a:hover { background: var(--lime); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
 .nav-cta {
   background: var(--black); color: var(--white);
   border-radius: 4px; padding: 8px 18px;
   font-weight: 700; font-size: 0.85rem;
   transition: background 0.15s;
+  white-space: nowrap;
 }
 .nav-cta:hover { background: #222; }
-.hamburger { display: none; flex-direction: column; gap: 4px; }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; padding: 4px; cursor: pointer;
+}
 .hamburger span { width: 22px; height: 2px; background: #000; display: block; }
 
 /* ── FLOATING STICKERS ── */
 .sticker {
   position: absolute;
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  border: var(--border);
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 0.78rem;
-  background: var(--white);
+  font-weight: 600; border: var(--border);
+  border-radius: 6px; padding: 6px 12px;
+  font-size: 0.78rem; background: var(--white);
   pointer-events: none;
   animation: float 6s ease-in-out infinite;
 }
@@ -134,6 +130,7 @@ nav {
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--lime); border: 1px solid #000;
   animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
 }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 .hero-h1 {
@@ -142,8 +139,7 @@ nav {
   letter-spacing: -0.03em; margin-bottom: 16px;
 }
 .hero-h1 span.highlight {
-  background: var(--lime); padding: 0 8px;
-  border-radius: 4px;
+  background: var(--lime); padding: 0 8px; border-radius: 4px;
 }
 .hero-typing-row {
   display: flex; align-items: center; gap: 12px;
@@ -152,6 +148,7 @@ nav {
 .typing-prefix {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1.1rem; color: var(--muted);
+  white-space: nowrap;
 }
 .typing-text {
   font-family: 'JetBrains Mono', monospace;
@@ -159,7 +156,7 @@ nav {
   color: var(--blue);
   border-right: 2px solid var(--blue);
   padding-right: 4px;
-  min-width: 260px;
+  min-width: 200px;
   animation: blink 0.7s step-end infinite;
 }
 @keyframes blink { 50% { border-color: transparent; } }
@@ -174,7 +171,8 @@ nav {
   padding: 13px 28px; font-weight: 700; font-size: 0.9rem;
   cursor: none; transition: background 0.15s;
   font-family: 'Space Grotesk', sans-serif;
-  display: inline-block;
+  display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap;
 }
 .btn-primary:hover { background: #222; }
 .btn-secondary {
@@ -183,7 +181,8 @@ nav {
   padding: 13px 28px; font-weight: 700; font-size: 0.9rem;
   cursor: none; transition: background 0.15s;
   font-family: 'Space Grotesk', sans-serif;
-  display: inline-block;
+  display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap;
 }
 .btn-secondary:hover { background: var(--lime-dark); }
 .btn-outline {
@@ -192,22 +191,19 @@ nav {
   padding: 13px 28px; font-weight: 600; font-size: 0.9rem;
   cursor: none; transition: background 0.15s;
   font-family: 'Space Grotesk', sans-serif;
-  display: inline-block;
+  display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap;
 }
 .btn-outline:hover { background: #f0f0f0; }
 .hero-stats {
-  display: flex; gap: 32px; margin-top: 48px;
-  flex-wrap: wrap;
+  display: flex; gap: 32px; margin-top: 48px; flex-wrap: wrap;
 }
 .stat { border-left: 3px solid var(--black); padding-left: 16px; }
 .stat-num { font-size: 1.8rem; font-weight: 800; line-height: 1; }
 .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
 
 /* ── SECTIONS ── */
-section {
-  padding: 80px 40px;
-  max-width: 1000px; margin: 0 auto;
-}
+section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
 .section-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: 'JetBrains Mono', monospace;
@@ -226,18 +222,13 @@ section {
 }
 .section-desc {
   font-size: 0.95rem; color: #444;
-  line-height: 1.75; max-width: 580px;
-  margin-bottom: 48px;
+  line-height: 1.75; max-width: 580px; margin-bottom: 48px;
 }
-.full-divider {
-  border: none; border-top: 1.5px solid var(--black);
-  margin: 0;
-}
+.full-divider { border: none; border-top: 1.5px solid var(--black); margin: 0; }
 
 /* ── ABOUT ── */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1fr 1fr;
   gap: 40px; align-items: start;
 }
 .about-card {
@@ -270,64 +261,44 @@ section {
 }
 .projects-inner { max-width: 1000px; margin: 0 auto; }
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  margin-top: 0;
 }
 
 /* browser mockup card */
-.proj-card {
-  display: flex; flex-direction: column;
-  cursor: none;
-}
+.proj-card { display: flex; flex-direction: column; cursor: none; }
 .browser-frame {
-  border: 2px solid #000;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 5px 5px 0 #000;
+  border: 2px solid #000; border-radius: 10px;
+  overflow: hidden; box-shadow: 5px 5px 0 #000;
   transition: transform 0.18s, box-shadow 0.18s;
   background: var(--white);
 }
 .proj-card:hover .browser-frame {
-  transform: translate(-3px, -3px);
-  box-shadow: 8px 8px 0 #000;
+  transform: translate(-3px, -3px); box-shadow: 8px 8px 0 #000;
 }
-
-/* browser chrome bar */
 .browser-chrome {
-  background: #1a1a1a;
-  padding: 10px 12px;
+  background: #1a1a1a; padding: 10px 12px;
   display: flex; align-items: center; gap: 10px;
 }
-.browser-dots {
-  display: flex; gap: 5px; flex-shrink: 0;
-}
+.browser-dots { display: flex; gap: 5px; flex-shrink: 0; }
 .browser-dots span {
-  width: 10px; height: 10px; border-radius: 50%;
-  display: block;
+  width: 10px; height: 10px; border-radius: 50%; display: block;
 }
-.dot-red   { background: #ff5f56; }
-.dot-yel   { background: #ffbd2e; }
-.dot-grn   { background: #27c93f; }
+.dot-red { background: #ff5f56; }
+.dot-yel { background: #ffbd2e; }
+.dot-grn { background: #27c93f; }
 .browser-url {
-  flex: 1; background: #2d2d2d;
-  border-radius: 4px; padding: 4px 10px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem; color: #aaa;
+  flex: 1; background: #2d2d2d; border-radius: 4px; padding: 4px 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #aaa;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-
-/* project preview area — coloured placeholder with icon */
 .browser-preview {
-  height: 180px;
-  display: flex; align-items: center; justify-content: center;
+  height: 180px; display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
 .proj-card:nth-child(1) .browser-preview { background: #c4f24a; }
 .proj-card:nth-child(2) .browser-preview { background: #bfdbfe; }
 .proj-card:nth-child(3) .browser-preview { background: #fde68a; }
-
 .preview-icon {
   font-size: 3.5rem;
   filter: drop-shadow(2px 3px 0 rgba(0,0,0,0.15));
@@ -338,25 +309,19 @@ section {
   50%      { transform: translateY(-8px); }
 }
 .preview-dots {
-  position: absolute; bottom: 10px; right: 12px;
-  display: flex; gap: 4px;
+  position: absolute; bottom: 10px; right: 12px; display: flex; gap: 4px;
 }
 .preview-dots span {
   width: 6px; height: 6px; border-radius: 50%; background: rgba(0,0,0,0.25);
 }
-
-/* below the frame */
 .proj-meta {
-  padding: 18px 4px 0;
-  flex: 1; display: flex; flex-direction: column;
+  padding: 18px 4px 0; flex: 1; display: flex; flex-direction: column;
 }
 .proj-title-row {
   display: flex; align-items: flex-start; justify-content: space-between;
   gap: 8px; margin-bottom: 8px;
 }
-.proj-name {
-  font-size: 1rem; font-weight: 800; line-height: 1.2;
-}
+.proj-name { font-size: 1rem; font-weight: 800; line-height: 1.2; }
 .live-badge {
   background: #000; color: var(--lime);
   border-radius: 20px; padding: 3px 10px;
@@ -365,7 +330,8 @@ section {
   font-family: 'JetBrains Mono', monospace;
 }
 .proj-desc {
-  font-size: 0.82rem; color: #333; line-height: 1.65; margin-bottom: 14px; flex: 1;
+  font-size: 0.82rem; color: #333; line-height: 1.65;
+  margin-bottom: 14px; flex: 1;
 }
 .proj-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
 .tech-chip {
@@ -374,33 +340,22 @@ section {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.65rem; color: #000; font-weight: 600;
 }
-.proj-links { display: flex; gap: 8px; }
+.proj-links { display: flex; gap: 8px; flex-wrap: wrap; }
 .proj-link {
   border: var(--border); background: var(--black); color: var(--lime);
   border-radius: 4px; padding: 7px 16px;
   font-size: 0.78rem; font-weight: 700;
   transition: background 0.15s; display: inline-block;
   cursor: none; font-family: 'Space Grotesk', sans-serif;
+  white-space: nowrap;
 }
 .proj-link:hover { background: #222; }
-.proj-link.ghost {
-  background: var(--white); color: var(--black);
-}
+.proj-link.ghost { background: var(--white); color: var(--black); }
 .proj-link.ghost:hover { background: var(--lime); }
 
-@media (max-width: 900px) {
-  .projects-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-  .projects-grid { grid-template-columns: 1fr; }
-  .projects-bg { padding: 60px 20px; }
-}
-
-/* ── SKILLS — REDESIGNED ── */
+/* ── SKILLS ── */
 .skills-board {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 }
 .skill-group {
   background: var(--white); border: var(--border);
@@ -409,12 +364,10 @@ section {
   transition: box-shadow 0.2s, transform 0.2s;
 }
 .skill-group:hover {
-  box-shadow: 4px 4px 0 var(--black);
-  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--black); transform: translate(-2px, -2px);
 }
 .skill-group::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
 }
 .skill-group.lang::before    { background: #a3e635; }
 .skill-group.backend::before { background: #2563eb; }
@@ -422,14 +375,11 @@ section {
 .skill-group.db::before      { background: #10b981; }
 .skill-group.tools::before   { background: #8b5cf6; }
 .skill-group.learning::before{ background: #ef4444; }
-
 .skill-group-header {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
 }
 .skill-group-icon {
-  width: 36px; height: 36px; border-radius: 8px;
-  border: var(--border);
+  width: 36px; height: 36px; border-radius: 8px; border: var(--border);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem; flex-shrink: 0;
 }
@@ -439,11 +389,9 @@ section {
 .db .skill-group-icon      { background: #a7f3d0; }
 .tools .skill-group-icon   { background: #ede9fe; }
 .learning .skill-group-icon{ background: #fecaca; }
-
 .skill-group-title {
-  font-size: 0.72rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  color: #000; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: #000; font-family: 'JetBrains Mono', monospace;
 }
 .skill-group-count {
   font-size: 0.65rem; color: var(--muted);
@@ -465,22 +413,17 @@ section {
 .db .skill-pill:hover      { background: #a7f3d0; }
 .tools .skill-pill:hover   { background: #ede9fe; }
 .learning .skill-pill:hover{ background: #fecaca; }
-
-/* AI group spans full width — primary focus */
 .skill-group.ai { grid-column: 1 / -1; }
 
 /* ── EXPERIENCE ── */
 .exp-card {
   background: var(--white); border: var(--border);
-  border-radius: 10px; padding: 28px;
-  margin-bottom: 20px; position: relative;
+  border-radius: 10px; padding: 28px; margin-bottom: 20px;
 }
 .exp-tag {
-  display: inline-block;
-  background: var(--lime); border: 1px solid #000;
+  display: inline-block; background: var(--lime); border: 1px solid #000;
   border-radius: 4px; padding: 3px 12px;
-  font-size: 0.72rem; font-weight: 700;
-  margin-bottom: 12px;
+  font-size: 0.72rem; font-weight: 700; margin-bottom: 12px;
 }
 .exp-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
 .exp-company { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
@@ -493,9 +436,7 @@ section {
   content: '→'; font-family: 'JetBrains Mono', monospace;
   color: var(--blue); flex-shrink: 0; margin-top: 1px;
 }
-.hackathon-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-}
+.hackathon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .hack-card {
   background: var(--bg2); border: var(--border);
   border-radius: 8px; padding: 20px;
@@ -511,13 +452,15 @@ section {
 
 /* ── CONTACT ── */
 .contact-wrapper {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px; align-items: start;
 }
-.contact-left h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+.contact-left h3 {
+  font-size: 1.8rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2;
+}
 .contact-left p { font-size: 0.93rem; color: #444; line-height: 1.75; margin-bottom: 28px; }
 .contact-card {
-  background: var(--white); border: var(--border);
-  border-radius: 10px; padding: 28px;
+  background: var(--white); border: var(--border); border-radius: 10px; padding: 28px;
 }
 .contact-row {
   display: flex; align-items: center; gap: 14px;
@@ -531,7 +474,7 @@ section {
   flex-shrink: 0; font-size: 1rem;
 }
 .contact-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 2px; }
-.contact-value { font-size: 0.88rem; font-weight: 600; }
+.contact-value { font-size: 0.88rem; font-weight: 600; word-break: break-all; }
 .contact-value a { color: var(--blue); }
 .contact-value a:hover { text-decoration: underline; }
 
@@ -543,46 +486,117 @@ footer {
   flex-wrap: wrap; gap: 16px;
 }
 .footer-left { font-size: 0.85rem; opacity: 0.7; }
-.footer-links { display: flex; gap: 16px; }
+.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
 .footer-links a {
-  font-size: 0.82rem; color: var(--lime);
-  font-weight: 600; cursor: none;
+  font-size: 0.82rem; color: var(--lime); font-weight: 600; cursor: none;
 }
 .footer-links a:hover { text-decoration: underline; }
 
-/* ── MOBILE ── */
+/* ── MOBILE MENU ── */
+.mobile-menu {
+  position: fixed; top: 56px; left: 0; right: 0;
+  background: var(--white); border-bottom: var(--border);
+  padding: 16px 20px; z-index: 199;
+  display: none; flex-direction: column; gap: 4px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 12px 14px; border-radius: 4px;
+  font-size: 0.9rem; font-weight: 500;
+  border-bottom: 1px solid #eee; display: block;
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { background: var(--lime); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 768px) {
-  nav { padding: 0 20px; }
+  /* Nav */
+  nav { padding: 0 16px; }
   .nav-links { display: none; }
   .nav-cta { display: none; }
   .hamburger { display: flex; }
-  .mobile-menu {
-    position: fixed; top: 56px; left: 0; right: 0;
-    background: var(--white); border-bottom: var(--border);
-    padding: 16px 20px; z-index: 199;
-    display: none; flex-direction: column; gap: 4px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    padding: 10px 14px; border-radius: 4px;
-    font-size: 0.9rem; font-weight: 500;
-    border-bottom: 1px solid #eee;
-  }
-  .hero { padding: 100px 20px 40px; }
+
+  /* Hero */
+  .hero { padding: 80px 20px 40px; min-height: auto; padding-top: 100px; }
+  .hero-h1 { font-size: clamp(2.2rem, 10vw, 3.5rem); }
   .hero-typing-row { flex-direction: column; align-items: flex-start; gap: 4px; }
-  .typing-text { min-width: unset; }
-  section { padding: 60px 20px; }
-  .about-grid { grid-template-columns: 1fr; }
-  .hackathon-grid { grid-template-columns: 1fr; }
-  .contact-wrapper { grid-template-columns: 1fr; }
-  .hero-stats { gap: 20px; }
+  .typing-prefix { font-size: 0.95rem; }
+  .typing-text { font-size: 0.95rem; min-width: unset; }
+  .hero-desc { font-size: 0.9rem; }
+  .hero-btns { gap: 10px; }
+  .hero-btns .btn-primary,
+  .hero-btns .btn-secondary,
+  .hero-btns .btn-outline {
+    padding: 11px 20px; font-size: 0.85rem;
+    flex: 1 1 auto; text-align: center; justify-content: center;
+    min-width: 130px;
+  }
+  .hero-stats { gap: 16px; margin-top: 36px; }
+  .stat-num { font-size: 1.4rem; }
+  .stat-label { font-size: 0.72rem; }
+
+  /* Stickers — hide most on mobile to avoid clutter */
+  .sticker { display: none; }
+
+  /* Sections */
+  section { padding: 56px 20px; }
+  .section-title { font-size: clamp(1.7rem, 8vw, 2.5rem); }
+  .section-desc { margin-bottom: 32px; font-size: 0.88rem; }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 20px; }
+  .about-card { padding: 20px; }
+
+  /* Projects */
+  .projects-bg { padding: 56px 20px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .browser-preview { height: 140px; }
+
+  /* Skills */
   .skills-board { grid-template-columns: 1fr; }
   .skill-group.ai { grid-column: 1; }
-  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
-  /* disable cursor on touch */
+  .skill-group { padding: 18px; }
+
+  /* Experience */
+  .hackathon-grid { grid-template-columns: 1fr; }
+  .exp-card { padding: 20px; }
+
+  /* Contact */
+  .contact-wrapper { grid-template-columns: 1fr; gap: 28px; }
+  .contact-left h3 { font-size: 1.5rem; }
+  .contact-card { padding: 20px; }
+  .contact-value { font-size: 0.82rem; }
+  .contact-left .hero-btns { flex-direction: column; }
+  .contact-left .btn-primary,
+  .contact-left .btn-outline {
+    text-align: center; justify-content: center;
+  }
+
+  /* Footer */
+  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  /* Disable cursor on touch */
   .cursor, .cursor-dot { display: none; }
   body, a, button { cursor: auto; }
   a { cursor: pointer; }
+}
+
+@media (max-width: 480px) {
+  .hero-h1 { font-size: clamp(2rem, 11vw, 3rem); }
+  .hero-btns { flex-direction: column; }
+  .hero-btns .btn-primary,
+  .hero-btns .btn-secondary,
+  .hero-btns .btn-outline {
+    width: 100%; text-align: center; justify-content: center;
+  }
+  .proj-links { flex-direction: column; }
+  .proj-link { text-align: center; }
+  nav { height: 52px; }
+  .mobile-menu { top: 52px; }
 }
 </style>
 </head>
@@ -605,10 +619,13 @@ footer {
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </div>
-  <a href="mailto:gsuhani433@gmail.com" class="nav-cta">Hire Me →</a>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+  <div class="nav-right">
+    <a href="https://drive.google.com/file/d/1XX1l4aaaRpnMH08UNAty5mWMmDqfUvwO/view?usp=sharing" target="_blank" class="nav-cta" style="background:#1a5c2b;color:#fff;">Resume ↓</a>
+    <a href="mailto:gsuhani433@gmail.com" class="nav-cta">Hire Me →</a>
   </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- MOBILE MENU -->
@@ -618,7 +635,8 @@ footer {
   <a href="#skills" onclick="toggleMenu()">Skills</a>
   <a href="#experience" onclick="toggleMenu()">Experience</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="mailto:gsuhani433@gmail.com" onclick="toggleMenu()">Hire Me →</a>
+  <a href="https://drive.google.com/file/d/1XX1l4aaaRpnMH08UNAty5mWMmDqfUvwO/view?usp=sharing" target="_blank" onclick="toggleMenu()" style="background:var(--lime);font-weight:700;">📄 Download Resume</a>
+  <a href="mailto:gsuhani433@gmail.com" onclick="toggleMenu()" style="background:var(--black);color:var(--white);font-weight:700;border-radius:4px;">Hire Me →</a>
 </div>
 
 <!-- HERO -->
@@ -648,12 +666,13 @@ footer {
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects →</a>
-        <a href="#contact" class="btn-secondary">Get in Touch</a>
+        <a href="https://drive.google.com/file/d/1XX1l4aaaRpnMH08UNAty5mWMmDqfUvwO/view?usp=sharing" target="_blank" class="btn-secondary">📄 Resume</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
         <a href="https://github.com/suhanigoyal24" target="_blank" class="btn-outline">GitHub ↗</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="stat-num">3</div><div class="stat-label">Live Projects</div></div>
-        <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Bugs Resolved in Production</div></div>
+        <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Bugs Resolved</div></div>
         <div class="stat"><div class="stat-num">8.2</div><div class="stat-label">CGPA</div></div>
         <div class="stat"><div class="stat-num">2</div><div class="stat-label">Hackathons</div></div>
       </div>
@@ -664,7 +683,7 @@ footer {
 <hr class="full-divider">
 
 <!-- ABOUT -->
-<section id="about" style="max-width:1000px;margin:0 auto;padding:80px 40px;">
+<section id="about">
   <div class="section-eyebrow">About me</div>
   <h2 class="section-title">Who I am</h2>
   <p class="section-desc">A 2026 BCA graduate who builds real, deployed backend and AI/ML systems and not just college projects. I care about clean APIs, smart search and code that actually works in production.</p>
@@ -682,6 +701,10 @@ footer {
       <div class="about-item">
         <div class="about-item-icon">⚡</div>
         <div><strong>Immediate joiner</strong><br><span style="color:#555;font-size:0.82rem;">Available to start right away</span></div>
+      </div>
+      <div class="about-item">
+        <div class="about-item-icon">📄</div>
+        <div><a href="https://drive.google.com/file/d/1XX1l4aaaRpnMH08UNAty5mWMmDqfUvwO/view?usp=sharing" target="_blank" style="color:var(--blue);font-weight:700;">View my Resume ↗</a></div>
       </div>
     </div>
     <div class="about-card">
@@ -726,9 +749,7 @@ footer {
           <div class="browser-frame">
             <div class="browser-chrome">
               <div class="browser-dots">
-                <span class="dot-red"></span>
-                <span class="dot-yel"></span>
-                <span class="dot-grn"></span>
+                <span class="dot-red"></span><span class="dot-yel"></span><span class="dot-grn"></span>
               </div>
               <div class="browser-url">ai-resume-frontend-eta.vercel.app</div>
             </div>
@@ -765,9 +786,7 @@ footer {
           <div class="browser-frame">
             <div class="browser-chrome">
               <div class="browser-dots">
-                <span class="dot-red"></span>
-                <span class="dot-yel"></span>
-                <span class="dot-grn"></span>
+                <span class="dot-red"></span><span class="dot-yel"></span><span class="dot-grn"></span>
               </div>
               <div class="browser-url">ai-qa-frontend.vercel.app</div>
             </div>
@@ -804,9 +823,7 @@ footer {
           <div class="browser-frame">
             <div class="browser-chrome">
               <div class="browser-dots">
-                <span class="dot-red"></span>
-                <span class="dot-yel"></span>
-                <span class="dot-grn"></span>
+                <span class="dot-red"></span><span class="dot-yel"></span><span class="dot-grn"></span>
               </div>
               <div class="browser-url">fake-news-detector-django-2.onrender.com</div>
             </div>
@@ -843,14 +860,13 @@ footer {
 
 <hr class="full-divider">
 
-<!-- SKILLS — REDESIGNED -->
-<section id="skills" style="max-width:1000px;margin:0 auto;padding:80px 40px;">
+<!-- SKILLS -->
+<section id="skills">
   <div class="section-eyebrow">Tech Stack</div>
   <h2 class="section-title">What I work with</h2>
   <p class="section-desc">Tools and technologies I actively use across backend, AI/ML, and testing projects.</p>
 
   <div class="skills-board">
-
     <div class="skill-group lang">
       <div class="skill-group-header">
         <div class="skill-group-icon">🖊️</div>
@@ -885,7 +901,6 @@ footer {
       </div>
     </div>
 
-    <!-- AI — spans full width as primary focus -->
     <div class="skill-group ai">
       <div class="skill-group-header">
         <div class="skill-group-icon">🤖</div>
@@ -925,7 +940,7 @@ footer {
         <div class="skill-group-icon">🔧</div>
         <div>
           <div class="skill-group-title">Tools</div>
-          <div class="skill-group-count">3 tools</div>
+          <div class="skill-group-count">4 tools</div>
         </div>
       </div>
       <div class="skill-pills-wrap">
@@ -933,7 +948,6 @@ footer {
         <span class="skill-pill">Docker</span>
         <span class="skill-pill">Postman</span>
         <span class="skill-pill">AWS</span>
-
       </div>
     </div>
 
@@ -947,24 +961,23 @@ footer {
       </div>
       <div class="skill-pills-wrap">
         <span class="skill-pill">React</span>
-        <span class="skill-pill">FastAPI</span
+        <span class="skill-pill">FastAPI</span>
       </div>
     </div>
-
   </div>
 </section>
 
 <hr class="full-divider">
 
 <!-- EXPERIENCE -->
-<section id="experience" style="max-width:1000px;margin:0 auto;padding:80px 40px;">
+<section id="experience">
   <div class="section-eyebrow">Experience</div>
   <h2 class="section-title">Where I've worked</h2>
   <p class="section-desc">Real production internship plus national-level hackathon experience.</p>
 
   <div class="exp-card">
     <span class="exp-tag">Internship</span>
-    <div class="exp-title">SoftwareDeveloper Intern</div>
+    <div class="exp-title">Software Developer Intern</div>
     <div class="exp-company">e-Biz Technocrats Pvt. Ltd. &nbsp;·&nbsp; Full-time</div>
     <ul class="exp-list">
       <li>Executed functional and regression testing across 2 web products; identified and resolved 20+ bugs ahead of release deadlines.</li>
@@ -997,7 +1010,7 @@ footer {
 <hr class="full-divider">
 
 <!-- CONTACT -->
-<section id="contact" style="max-width:1000px;margin:0 auto;padding:80px 40px;">
+<section id="contact">
   <div class="section-eyebrow">Contact</div>
   <div class="contact-wrapper">
     <div class="contact-left">
@@ -1005,6 +1018,7 @@ footer {
       <p>I'm actively looking for Python backend, AI/ML, and QA roles in Gurugram, Delhi NCR, or remote. Immediate joiner, reach out and I'll respond fast.</p>
       <div class="hero-btns">
         <a href="mailto:gsuhani433@gmail.com" class="btn-primary">Send Email →</a>
+        <a href="https://drive.google.com/file/d/1XX1l4aaaRpnMH08UNAty5mWMmDqfUvwO/view?usp=sharing" target="_blank" class="btn-secondary">📄 Resume</a>
         <a href="https://github.com/suhanigoyal24" target="_blank" class="btn-outline">GitHub ↗</a>
       </div>
     </div>
@@ -1012,6 +1026,10 @@ footer {
       <div class="contact-row">
         <div class="contact-icon">✉️</div>
         <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:gsuhani433@gmail.com">gsuhani433@gmail.com</a></div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">📄</div>
+        <div><div class="contact-label">Resume</div><div class="contact-value"><a href="https://drive.google.com/file/d/1XX1l4aaaRpnMH08UNAty5mWMmDqfUvwO/view?usp=sharing" target="_blank">View on Google Drive ↗</a></div></div>
       </div>
       <div class="contact-row">
         <div class="contact-icon">🌐</div>
@@ -1022,12 +1040,12 @@ footer {
         <div><div class="contact-label">GitHub</div><div class="contact-value"><a href="https://github.com/suhanigoyal24" target="_blank">github.com/suhanigoyal24</a></div></div>
       </div>
       <div class="contact-row">
-        <div class="contact-icon">🌐</div>
+        <div class="contact-icon">🐦</div>
         <div><div class="contact-label">Twitter</div><div class="contact-value"><a href="https://x.com/suhani_goyal24" target="_blank">x.com/suhani_goyal24</a></div></div>
       </div>
       <div class="contact-row">
-        <div class="contact-icon">🌐</div>
-        <div><div class="contact-label">Youtube</div><div class="contact-value"><a href="https://www.youtube.com/@BuildWithSuhani" target="_blank">youtube.com/@BuildWithSuhani</a></div></div>
+        <div class="contact-icon">▶️</div>
+        <div><div class="contact-label">YouTube</div><div class="contact-value"><a href="https://www.youtube.com/@BuildWithSuhani" target="_blank">@BuildWithSuhani</a></div></div>
       </div>
       <div class="contact-row">
         <div class="contact-icon">📍</div>
@@ -1043,10 +1061,11 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-left">© 2026 Suhani Goyal - Built with Care</div>
+  <div class="footer-left">© 2026 Suhani Goyal — Built with Care</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/suhani-goyal17/" target="_blank">LinkedIn</a>
     <a href="https://github.com/suhanigoyal24" target="_blank">GitHub</a>
+    <a href="https://drive.google.com/file/d/1XX1l4aaaRpnMH08UNAty5mWMmDqfUvwO/view?usp=sharing" target="_blank">Resume</a>
     <a href="mailto:gsuhani433@gmail.com">Email</a>
   </div>
 </footer>
@@ -1055,12 +1074,10 @@ footer {
 // ── CUSTOM CURSOR ──
 const cursor = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursorDot');
-let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0;
+let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
 
 document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  mouseX = e.clientX; mouseY = e.clientY;
   cursorDot.style.left = mouseX + 'px';
   cursorDot.style.top = mouseY + 'px';
 });
@@ -1073,7 +1090,6 @@ document.addEventListener('mousemove', e => {
   requestAnimationFrame(animateCursor);
 })();
 
-// grow on interactive elements
 document.querySelectorAll('a, button, [onclick], .proj-card, .skill-pill, .skill-group').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
