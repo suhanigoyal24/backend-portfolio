@@ -229,11 +229,12 @@ section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
 /* ── ABOUT ── */
 .about-grid {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 40px; align-items: start;
+  gap: 40px; align-items: stretch;
 }
 .about-card {
   background: var(--white); border: var(--border);
   border-radius: 10px; padding: 28px;
+  height: 100%;
 }
 .about-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; }
 .about-item {
@@ -355,11 +356,11 @@ section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
 
 /* ── SKILLS ── */
 .skills-board {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
 }
 .skill-group {
   background: var(--white); border: var(--border);
-  border-radius: 12px; padding: 22px;
+  border-radius: 12px; padding: 18px;
   position: relative; overflow: hidden;
   transition: box-shadow 0.2s, transform 0.2s;
 }
@@ -376,12 +377,12 @@ section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
 .skill-group.tools::before   { background: #8b5cf6; }
 .skill-group.learning::before{ background: #ef4444; }
 .skill-group-header {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
 }
 .skill-group-icon {
-  width: 36px; height: 36px; border-radius: 8px; border: var(--border);
+  width: 30px; height: 30px; border-radius: 8px; border: var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0;
+  font-size: 0.95rem; flex-shrink: 0;
 }
 .lang .skill-group-icon    { background: #d9f99d; }
 .backend .skill-group-icon { background: #bfdbfe; }
@@ -401,8 +402,8 @@ section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
 .skill-pill {
   display: inline-flex; align-items: center;
   background: var(--bg); border: 1.5px solid #000;
-  border-radius: 20px; padding: 5px 12px;
-  font-size: 0.75rem; font-weight: 600;
+  border-radius: 20px; padding: 4px 10px;
+  font-size: 0.7rem; font-weight: 600;
   transition: background 0.15s, transform 0.12s;
   font-family: 'JetBrains Mono', monospace;
 }
@@ -938,7 +939,8 @@ footer {
         <span class="skill-pill">Postman</span>
         <span class="skill-pill">AWS</span>
       </div>
-    </div>        
+    </div>
+  </div>
 </section>
 
 <hr class="full-divider">
@@ -992,9 +994,6 @@ footer {
     <div class="contact-left">
       <h3>Let's work<br>together 🤝</h3>
       <p>I'm actively looking for Software Development Engineer (SDE) Intern and Python Backend roles in Gurugram, Delhi NCR, or remote. As an immediate joiner, I am ready to deploy scalable server logic and AI system integrations from Day 1. Reach out and I'll respond fast!</p>
-    </div>
-  </div>
-</section>
       <div class="hero-btns">
         <a href="mailto:gsuhani433@gmail.com" class="btn-primary">Send Email →</a>
         <a href="https://drive.google.com/file/d/1rIm0lXv51JmdQFEbYlePgiETKVmCuwLK/view?usp=sharing" target="_blank" class="btn-secondary">📄 Resume</a>
