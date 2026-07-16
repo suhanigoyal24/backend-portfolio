@@ -451,6 +451,33 @@ section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
 .hack-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; }
 .hack-desc { font-size: 0.82rem; color: #444; line-height: 1.6; }
 
+/* ── CERTIFICATIONS ── */
+.cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cert-card {
+  background: var(--white); border: var(--border);
+  border-radius: 10px; padding: 24px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.cert-icon {
+  width: 40px; height: 40px; background: var(--lime);
+  border: var(--border); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.cert-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+.cert-desc { font-size: 0.83rem; color: #444; line-height: 1.6; }
+
+/* ── EDUCATION ── */
+.edu-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 12px; padding: 14px 0; border-bottom: 1px solid #eee;
+  font-size: 0.88rem;
+}
+.edu-row:last-child { border-bottom: none; }
+.edu-degree { font-weight: 700; }
+.edu-school { color: var(--muted); font-size: 0.82rem; margin-top: 2px; }
+.edu-meta { text-align: right; font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+
 /* ── CONTACT ── */
 .contact-wrapper {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -515,13 +542,11 @@ footer {
 }
 
 @media (max-width: 768px) {
-  /* Nav */
   nav { padding: 0 16px; }
   .nav-links { display: none; }
   .nav-cta { display: none; }
   .hamburger { display: flex; }
 
-  /* Hero */
   .hero { padding: 80px 20px 40px; min-height: auto; padding-top: 100px; }
   .hero-h1 { font-size: clamp(2.2rem, 10vw, 3.5rem); }
   .hero-typing-row { flex-direction: column; align-items: flex-start; gap: 4px; }
@@ -540,33 +565,30 @@ footer {
   .stat-num { font-size: 1.4rem; }
   .stat-label { font-size: 0.72rem; }
 
-  /* Stickers — hide most on mobile to avoid clutter */
   .sticker { display: none; }
 
-  /* Sections */
   section { padding: 56px 20px; }
   .section-title { font-size: clamp(1.7rem, 8vw, 2.5rem); }
   .section-desc { margin-bottom: 32px; font-size: 0.88rem; }
 
-  /* About */
   .about-grid { grid-template-columns: 1fr; gap: 20px; }
   .about-card { padding: 20px; }
 
-  /* Projects */
   .projects-bg { padding: 56px 20px; }
   .projects-grid { grid-template-columns: 1fr; }
   .browser-preview { height: 140px; }
 
-  /* Skills */
   .skills-board { grid-template-columns: 1fr; }
   .skill-group.ai { grid-column: 1; }
   .skill-group { padding: 18px; }
 
-  /* Experience */
   .hackathon-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr; }
   .exp-card { padding: 20px; }
 
-  /* Contact */
+  .edu-row { flex-direction: column; gap: 2px; }
+  .edu-meta { text-align: left; }
+
   .contact-wrapper { grid-template-columns: 1fr; gap: 28px; }
   .contact-left h3 { font-size: 1.5rem; }
   .contact-card { padding: 20px; }
@@ -577,10 +599,8 @@ footer {
     text-align: center; justify-content: center;
   }
 
-  /* Footer */
   footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
 
-  /* Disable cursor on touch */
   .cursor, .cursor-dot { display: none; }
   body, a, button { cursor: auto; }
   a { cursor: pointer; }
@@ -663,7 +683,7 @@ footer {
         <span class="typing-text" id="typingText"></span>
       </div>
       <p class="hero-desc">
-        BCA (Hons.) graduate from ITM University, Gwalior (Batch 2026). I build Python backends, RAG-based AI apps, REST APIs and ship them to production with live URLs.
+        Python Backend Developer specializing in multi-user Django applications, high-performance REST APIs, and automated data ingestion pipelines. I integrate ML/NLP models into scalable backends with optimized MySQL schemas from system design through cloud deployment on AWS, Render, and HuggingFace Spaces.
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects →</a>
@@ -673,7 +693,7 @@ footer {
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="stat-num">3</div><div class="stat-label">Live Projects</div></div>
-        <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Bugs Resolved</div></div>
+        <div class="stat"><div class="stat-num">87%</div><div class="stat-label">Best Model F1 Score</div></div>
         <div class="stat"><div class="stat-num">8.2</div><div class="stat-label">CGPA</div></div>
         <div class="stat"><div class="stat-num">2</div><div class="stat-label">Hackathons</div></div>
       </div>
@@ -693,7 +713,7 @@ footer {
       <h3>🎓 Education & Background</h3>
       <div class="about-item">
         <div class="about-item-icon">🏫</div>
-        <div><strong>BCA (Hons.)</strong> : ITM University, Gwalior<br><span style="color:#555;font-size:0.82rem;">CGPA: 8.2 &nbsp;|&nbsp; Class of 2026</span></div>
+        <div><strong>BCA (Hons.)</strong> : ITM University, Gwalior<br><span style="color:#555;font-size:0.82rem;">CGPA: 8.2 &nbsp;|&nbsp; 2023 – 2026</span></div>
       </div>
       <div class="about-item">
         <div class="about-item-icon">📍</div>
@@ -707,7 +727,7 @@ footer {
     <div class="about-card">
       <h3>🎯 What I'm Looking For</h3>
       <div class="tag-row">
-        <span class="tag">SDE Intern</span>
+        <span class="tag">SDE</span>
         <span class="tag">Python Backend Developer</span>
         <span class="tag">Django / DRF</span>
         <span class="tag">AI System Integration</span>
@@ -740,7 +760,7 @@ footer {
 
     <div class="projects-grid">
 
-      <!-- Card 1 -->
+      <!-- Card 1: AI Resume ATS Checker -->
       <div class="proj-card">
         <a href="https://ai-resume-frontend-eta.vercel.app" target="_blank" style="display:block;">
           <div class="browser-frame">
@@ -758,16 +778,18 @@ footer {
         </a>
         <div class="proj-meta">
           <div class="proj-title-row">
-            <div class="proj-name">AI Resume Shortlister & ATS Checker</div>
+            <div class="proj-name">AI Resume Shortlisting & ATS Checker</div>
             <span class="live-badge">● LIVE</span>
           </div>
-          <p class="proj-desc">Semantic resume ranking using sentence-transformers + FAISS vector search. Upload multiple resumes, get them ranked by match score against a JD. ATS keyword analysis included.</p>
+          <p class="proj-desc">Hybrid resume-to-job scoring engine combining SBERT semantic similarity (70%) with TF-IDF keyword matching (30%). Scoring logic exposed via secure JWT-authenticated DRF endpoints at ~254ms latency per resume-JD pair. HR dashboard with Chart.js visualizations and CSV export for bulk review.</p>
           <div class="proj-chips">
             <span class="tech-chip">Python</span>
             <span class="tech-chip">Django</span>
-            <span class="tech-chip">MySQL</span>
+            <span class="tech-chip">NLP</span>
+            <span class="tech-chip">spaCy</span>
+            <span class="tech-chip">scikit-learn</span>
             <span class="tech-chip">REST API</span>
-            <span class="tech-chip">sentence-transformers</span>
+            <span class="tech-chip">JWT Auth</span>
           </div>
           <div class="proj-links">
             <a href="https://ai-resume-frontend-eta.vercel.app" target="_blank" class="proj-link">View Live ↗</a>
@@ -776,7 +798,7 @@ footer {
         </div>
       </div>
 
-      <!-- Card 2 -->
+      <!-- Card 2: AI Document Q&A -->
       <div class="proj-card">
         <a href="https://ai-qa-frontend.vercel.app" target="_blank" style="display:block;">
           <div class="browser-frame">
@@ -797,13 +819,14 @@ footer {
             <div class="proj-name">AI Document Q&A</div>
             <span class="live-badge">● LIVE</span>
           </div>
-          <p class="proj-desc">RAG pipeline to upload any PDF/video/audio, it chunks & embeds into FAISS. Ask questions; Google Gemini answers from retrieved context only. Zero hallucination by design.</p>
+          <p class="proj-desc">End-to-end RAG pipeline handling PDF, text, image, audio & video uploads — Whisper transcription (~7.7x real-time) plus Gemini multimodal models with timestamp-aware chunking. Answers are grounded strictly in retrieved context, reducing hallucinations by design. Containerized with Docker and deployed on HuggingFace Spaces with a TiDB Cloud backend, JWT auth, and per-user data isolation.</p>
           <div class="proj-chips">
             <span class="tech-chip">Python</span>
-            <span class="tech-chip">REST API</span>
-            <span class="tech-chip">Gemini</span>
+            <span class="tech-chip">Django</span>
+            <span class="tech-chip">Whisper</span>
             <span class="tech-chip">FAISS</span>
-            <span class="tech-chip">RAG</span>
+            <span class="tech-chip">Gemini</span>
+            <span class="tech-chip">Docker</span>
           </div>
           <div class="proj-links">
             <a href="https://ai-qa-frontend.vercel.app" target="_blank" class="proj-link">View Live ↗</a>
@@ -812,7 +835,7 @@ footer {
         </div>
       </div>
 
-      <!-- Card 3 -->
+      <!-- Card 3: Fake News Detection -->
       <div class="proj-card">
         <a href="https://fake-news-detector-django-2.onrender.com" target="_blank" style="display:block;">
           <div class="browser-frame">
@@ -833,14 +856,14 @@ footer {
             <div class="proj-name">Fake News Detection System</div>
             <span class="live-badge">● LIVE</span>
           </div>
-          <p class="proj-desc">Engineered an algorithmic NLP pipeline returning binary classification states (Real/Fake), statistical confidence metrics, validation fallback reasoning, and upstream source origin data.</p>
+          <p class="proj-desc">Automated scraping pipeline (BeautifulSoup) that pulls and cleans articles from 10+ sources into MySQL. A Logistic Regression classifier trained on TF-IDF bigram features from 4,900+ articles achieves 87.0% weighted F1 and 68% recall on the fake-news class. Multi-database topology via a custom Django DB Router isolates reference data from user reviews, with async AJAX for a no-reload UI.</p>
           <div class="proj-chips">
             <span class="tech-chip">Python</span>
             <span class="tech-chip">Django</span>
+            <span class="tech-chip">MySQL</span>
             <span class="tech-chip">scikit-learn</span>
-            <span class="tech-chip">TF-IDF</span>
-            <span class="tech-chip">NLP</span>
-            <span class="tech-chip">MySQL/SQLite</span>
+            <span class="tech-chip">spaCy</span>
+            <span class="tech-chip">REST API</span>
           </div>
           <div class="proj-links">
             <a href="https://fake-news-detector-django-2.onrender.com" target="_blank" class="proj-link">View Live ↗</a>
@@ -859,7 +882,7 @@ footer {
 <section id="skills">
   <div class="section-eyebrow">Tech Stack</div>
   <h2 class="section-title">What I work with</h2>
-  <p class="section-desc">Tools and technologies I actively use across backend, AI/ML, and testing projects.</p>
+  <p class="section-desc">Tools and technologies I actively use across backend, AI/ML, and cloud deployment.</p>
 
   <div class="skills-board">
     <div class="skill-group lang">
@@ -873,6 +896,7 @@ footer {
       <div class="skill-pills-wrap">
         <span class="skill-pill">Python</span>
         <span class="skill-pill">SQL</span>
+        <span class="skill-pill">DSA</span>
       </div>
     </div>
 
@@ -881,14 +905,15 @@ footer {
         <div class="skill-group-icon">⚙️</div>
         <div>
           <div class="skill-group-title">Backend & APIs</div>
-          <div class="skill-group-count">Frameworks & Testing</div>
+          <div class="skill-group-count">Frameworks & Auth</div>
         </div>
       </div>
       <div class="skill-pills-wrap">
         <span class="skill-pill">Django</span>
         <span class="skill-pill">Django REST Framework</span>
+        <span class="skill-pill">Django ORM</span>
         <span class="skill-pill">REST APIs</span>
-        <span class="skill-pill">pytest</span>
+        <span class="skill-pill">JWT Auth</span>
       </div>
     </div>
 
@@ -896,18 +921,20 @@ footer {
       <div class="skill-group-header">
         <div class="skill-group-icon">🤖</div>
         <div>
-          <div class="skill-group-title">AI / ML</div>
+          <div class="skill-group-title">AI / ML & NLP</div>
           <div class="skill-group-count">Primary Focus</div>
         </div>
       </div>
       <div class="skill-pills-wrap">
-        <span class="skill-pill">sentence-transformers</span>
-        <span class="skill-pill">FAISS</span>
-        <span class="skill-pill">Google Gemini</span>
+        <span class="skill-pill">RAG</span>
+        <span class="skill-pill">Google Gemini API</span>
+        <span class="skill-pill">Sentence-Transformers (SBERT)</span>
+        <span class="skill-pill">FAISS Vector DB</span>
+        <span class="skill-pill">Whisper</span>
         <span class="skill-pill">scikit-learn</span>
         <span class="skill-pill">spaCy</span>
+        <span class="skill-pill">NLTK</span>
         <span class="skill-pill">TF-IDF</span>
-        <span class="skill-pill">RAG</span>
       </div>
     </div>
 
@@ -916,12 +943,13 @@ footer {
         <div class="skill-group-icon">🗄️</div>
         <div>
           <div class="skill-group-title">Databases</div>
-          <div class="skill-group-count">Relational Systems</div>
+          <div class="skill-group-count">Relational & Vector</div>
         </div>
       </div>
       <div class="skill-pills-wrap">
         <span class="skill-pill">MySQL</span>
         <span class="skill-pill">SQLite</span>
+        <span class="skill-pill">FIASS</span>
       </div>
     </div>
 
@@ -929,14 +957,18 @@ footer {
       <div class="skill-group-header">
         <div class="skill-group-icon">🔧</div>
         <div>
-          <div class="skill-group-title">Tools</div>
-          <div class="skill-group-count">Workflow & Cloud</div>
+          <div class="skill-group-title">Cloud & Tools</div>
+          <div class="skill-group-count">Deployment & Workflow</div>
         </div>
       </div>
       <div class="skill-pills-wrap">
-        <span class="skill-pill">Git</span>
-        <span class="skill-pill">Postman</span>
         <span class="skill-pill">AWS</span>
+        <span class="skill-pill">Render</span>
+        <span class="skill-pill">HuggingFace Spaces</span>
+        <span class="skill-pill">Docker</span>
+        <span class="skill-pill">Git / GitHub</span>
+        <span class="skill-pill">Postman</span>
+        <span class="skill-pill">BeautifulSoup</span>
       </div>
     </div>
   </div>
@@ -952,15 +984,13 @@ footer {
   <p class="section-desc">Practical software engineering internship alongside fast-paced technical hackathon sprints.</p>
 
   <div class="exp-card">
-    <span class="exp-tag">Internship</span>
-    <div class="exp-title">Software Developer Intern</div>
-    <div class="exp-company">e-Biz Technocrats Pvt. Ltd. &nbsp;·&nbsp; Full-time</div>
+    <span class="exp-tag">Internship &nbsp;·&nbsp; Jun – Jul 2025</span>
+    <div class="exp-title">Software Development Intern</div>
+    <div class="exp-company">e-Biz Technocrats Pvt. Ltd.</div>
     <ul class="exp-list">
-      <li>Conducted backend integration testing across two core enterprise web applications, resolving 20+ logic bugs ahead of deadlines.</li>
-      <li>Validated and tested secure REST APIs, utilizing Postman to validate request-response lifecycles.</li>
-      <li>Refactored core legacy backend modules to optimize data routing workflows, increasing landing page UI performance by 15%.</li>
-      <li>Authored system architecture maps, API documentation and database schemas for seamless handoffs across a 7 member engineering team.  </li>
-      <li>Developed and shipped a digital awareness campaign for NGO Women Self-Help Groups, reaching 20+ beneficiaries.</li>
+      <li>Contributed to a legacy website redesign as part of a 4-person team, debugging and resolving usability and functional issues across the codebase.</li>
+      <li>Collaborated with a senior manager to trace and fix issues across two live enterprise web applications, working directly with underlying database schemas to understand data flow and structure.</li>
+      <li>Applied database schema exposure to identify structure-level bugs beyond surface-level UI issues, strengthening backend debugging skills.</li>
     </ul>
   </div>
 
@@ -971,16 +1001,54 @@ footer {
       <div class="hack-card">
         <div class="hack-level">🇮🇳 National Initiative</div>
         <div class="hack-name">Smart India Hackathon 2025</div>
-        <div class="hack-desc">Nominated by university panel; built a working prototype of a Student Mental Health Chatbot under a tight 36-hour sprint.</div>
+        <div class="hack-desc">Led an engineering team through a 36-hour sprint to build a functional Student Mental Health Chatbot prototype.</div>
       </div>
       <div class="hack-card">
         <div class="hack-level">🏛️ Inter-College Tier</div>
         <div class="hack-name">MP Police Cybersecurity Hackathon 2025</div>
-        <div class="hack-desc">Competed across regional colleges to build a Fake News Detection System to combat misinformation using Python and ML pipelines.</div>
+        <div class="hack-desc">Led an engineering team through a 36-hour sprint to build a Fake News Detection System to combat misinformation using Python and ML pipelines.</div>
       </div>
     </div>
   </div>
 
+</section>
+
+<hr class="full-divider">
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-eyebrow">Certifications</div>
+  <h2 class="section-title">Credentials</h2>
+  <p class="section-desc">Cloud fundamentals validated through hands-on assessment.</p>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">☁️</div>
+      <div>
+        <div class="cert-name">AWS Cloud Foundations Badge</div>
+        <div class="cert-desc">Validated operational proficiency across core AWS utilities — IAM, EC2 compute scaling, VPC network topologies, and S3 storage buckets.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:14px;">🎓 Education</h3>
+    <div class="about-card" style="max-width:100%;">
+      <div class="edu-row">
+        <div>
+          <div class="edu-degree">Bachelor of Computer Applications (BCA Hons.)</div>
+          <div class="edu-school">ITM University, Gwalior</div>
+        </div>
+        <div class="edu-meta">2023 – 2026<br>CGPA: 8.2</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-degree">CBSE Class X & XII</div>
+          <div class="edu-school">Carmel Convent School, Gwalior</div>
+        </div>
+        <div class="edu-meta">2020 – 2023<br>X: 93.5% &nbsp;|&nbsp; XII: 92%</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <hr class="full-divider">
@@ -991,7 +1059,7 @@ footer {
   <div class="contact-wrapper">
     <div class="contact-left">
       <h3>Let's work<br>together 🤝</h3>
-      <p>I'm actively looking for Software Development Engineer (SDE) Intern and Python Backend roles in Gurugram, Delhi NCR, or remote. As an immediate joiner, I am ready to deploy scalable server logic and AI system integrations from Day 1. Reach out and I'll respond fast!</p>
+      <p>I'm actively looking for Software Development Engineer (SDE) and Python Backend roles in Gurugram, Delhi NCR, or remote. As an immediate joiner, I'm ready to deploy scalable server logic and AI system integrations from Day 1. Reach out and I'll respond fast!</p>
       <div class="hero-btns">
         <a href="mailto:gsuhani433@gmail.com" class="btn-primary">Send Email →</a>
         <a href="https://drive.google.com/file/d/1X_bH07QAZ7fcESQ6VDCkln_zMvNuuBY9/view?usp=sharing" target="_blank" class="btn-secondary">📄 Resume</a>
@@ -1072,7 +1140,7 @@ document.querySelectorAll('a, button, [onclick], .proj-card, .skill-pill, .skill
 });
 
 // ── TYPING ANIMATION ──
-const words = ['Python Backend APIs','AI/ML Systems','RAG Applications','QA & Testing Pipelines','Django REST APIs','Production-ready Code'];
+const words = ['Python Backend APIs','AI/ML Systems','RAG Applications','Django REST APIs','Data Ingestion Pipelines','Production-ready Code'];
 let wi = 0, ci = 0, deleting = false;
 const el = document.getElementById('typingText');
 function type() {
